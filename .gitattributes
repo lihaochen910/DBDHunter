@@ -1,0 +1,33 @@
+# Auto detect text files and perform LF normalization
+*          text=auto
+
+*.cs       text diff=csharp
+*.csx      text diff=csharp
+*.sln      text eol=crlf
+*.csproj   text eol=crlf
+
+# JSON files
+*.json                  text
+game_condifg            text
+
+# Localize Asset
+*.csv					text
+
+# GUM Asset
+*.gum					text
+
+# Images
+*.png                   lfs
+*.psd                   lfs
+*.ase                   lfs
+*.aseprite              lfs
+
+# Murder Engine imported image
+*.qoi.gz                lfs
+
+# Fonts
+*.ttf                   lfs
+*.fnt                   text
+
+# Compiled Dynamic Library
+*.dll                   lfs

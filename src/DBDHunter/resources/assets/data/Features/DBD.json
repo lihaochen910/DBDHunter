@@ -1,0 +1,61 @@
+{
+  "$type": "Murder.Assets.FeatureAsset",
+  "IsDiagnostics": false,
+  "Name": "DBD",
+  "Guid": "cc573bb3-a47e-4265-addc-c498387e5445",
+  "systems": [
+    {
+      "Item1": "DBDHunter.Systems.VmmInitializeSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdProcessFindSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdEngineInitializeSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdGameInstanceRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdPersistentLevelRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdPlayerCameraMgrAddrRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdPlayerCameraMgrViewMatrixRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdActorRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdPlayerEspRenderSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.RefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdDebugSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdGameStateRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdPlayerStateRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    }
+  ],
+  "features": []
+}

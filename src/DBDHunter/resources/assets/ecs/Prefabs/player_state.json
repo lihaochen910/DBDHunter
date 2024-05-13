@@ -1,0 +1,29 @@
+{
+  "$type": "Murder.Assets.PrefabAsset",
+  "ShowOnPrefabSelector": false,
+  "Dimensions": {
+    "Origin": {
+      "X": 0,
+      "Y": 0
+    },
+    "Size": {
+      "X": 0,
+      "Y": 0
+    }
+  },
+  "Name": "player_state",
+  "Guid": "afebaa34-2da8-4b2b-90ea-47bbe8c9c03b",
+  "entity": {
+    "IsDeactivated": false,
+    "ActivateWithParent": false,
+    "guid": "a50f25fb-f702-4fe8-8dc7-bb544630fd6b",
+    "name": "player_state",
+    "components": {
+      "Murder.Components.PositionComponent, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": {
+        "$type": "Murder.Components.PositionComponent",
+        "x": 0,
+        "y": 0
+      }
+    }
+  }
+}

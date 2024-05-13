@@ -1,0 +1,33 @@
+{
+  "$type": "Murder.Assets.PrefabAsset",
+  "ShowOnPrefabSelector": false,
+  "Dimensions": {
+    "Origin": {
+      "X": 0,
+      "Y": 0
+    },
+    "Size": {
+      "X": 0,
+      "Y": 0
+    }
+  },
+  "Name": "vmm",
+  "Guid": "7fec8ea4-4b37-4bac-8192-b0bdaae5dafd",
+  "entity": {
+    "IsDeactivated": false,
+    "ActivateWithParent": false,
+    "guid": "87286039-8654-4214-a803-cb4a58b98605",
+    "name": "vmm",
+    "components": {
+      "Murder.Components.PositionComponent, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": {
+        "$type": "Murder.Components.PositionComponent",
+        "x": 0,
+        "y": 0
+      },
+      "DBDHunter.Components.RefreshListenerComponent, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": {
+        "$type": "DBDHunter.Components.RefreshListenerComponent",
+        "RefreshTime": 5
+      }
+    }
+  }
+}

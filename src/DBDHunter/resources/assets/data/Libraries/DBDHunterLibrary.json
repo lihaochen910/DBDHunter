@@ -1,0 +1,12 @@
+{
+  "$type": "DBDHunter.Assets.LibraryAsset",
+  "UiSkin": "8504bb55-ea7f-45ce-9e63-507ecb93e3c4",
+  "Vmm": "7fec8ea4-4b37-4bac-8192-b0bdaae5dafd",
+  "PersistentLevel": "903e5443-6084-4295-bd4c-07eb69084bc5",
+  "PlayerCameraManager": "3add2ae5-abe2-4f1a-8183-963a705f988b",
+  "LocalPlayers": "b9363ae5-e546-4bdf-ab3e-f64051b71865",
+  "PlayerActor": "424e0d02-1f3c-481c-98c1-de4f1298ab57",
+  "PlayerState": "afebaa34-2da8-4b2b-90ea-47bbe8c9c03b",
+  "Name": "DBDHunterLibrary",
+  "Guid": "63b7bab9-8d55-4289-9a78-30867cb0104e"
+}

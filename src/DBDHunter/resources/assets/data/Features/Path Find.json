@@ -1,0 +1,17 @@
+{
+  "$type": "Murder.Assets.FeatureAsset",
+  "IsDiagnostics": false,
+  "Name": "Path Find",
+  "Guid": "992bc61f-722b-4fc1-9877-0bd17cb5185b",
+  "systems": [
+    {
+      "Item1": "Murder.Systems.CalculatePathfindSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "Murder.Systems.PathfindRouteSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    }
+  ],
+  "features": []
+}

@@ -1,0 +1,16 @@
+# Hi there! If you want to load .ttf fonts use the following format: 
+# <index> <path-to-font>: <font-size> [<offsetX> <offsetY>] [charsDefineFile]
+# For example: 
+#   100 FontName.ttf: 16
+#
+# You can access your font in Murder according to the index you chose. Remember that some indices (100+) are reserved 
+# for the built-in engine fonts!
+#
+# - Empty lines, or starting with '#' are ignored.
+#
+# The fonts here are by Chevy Ray, used with permission. You can buy the whole pack (40+ fonts!) here: http://pixel-fonts.com/
+
+100 beaver.ttf: 16 0 -1
+101 spellbook.ttf: 16
+102 sce-ps3-rd-r-latin-webfont.ttf: 18
+103 fusion-pixel-12px-monospaced-zh_hans.ttf: 12 0 0 cn_chars_define.txt

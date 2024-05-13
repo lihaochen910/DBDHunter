@@ -1,0 +1,15 @@
+# User-specific files
+*.suo
+*.user
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+
+# My
+src/DBDHunter/packed
+!src/DBDHunter/packed/atlas
+src/DBDHunter/resources/assets/data/Generated

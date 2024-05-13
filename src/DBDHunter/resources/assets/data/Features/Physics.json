@@ -1,0 +1,49 @@
+{
+  "$type": "Murder.Assets.FeatureAsset",
+  "IsDiagnostics": false,
+  "Name": "Physics",
+  "Guid": "2777944b-5615-4b83-98bd-78e9633dc0e2",
+  "systems": [
+    {
+      "Item1": "Murder.Systems.MapInitializerSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "Murder.Systems.MapCarveCollisionSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "Murder.Systems.Agents.AgentMoveToSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "Murder.Systems.AgentMoverSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "Murder.Systems.FrictionSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "Murder.Systems.QuadtreeCalculatorSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "Murder.Systems.Physics.VerticalPhysicsSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "Murder.Systems.MoveToPerfectSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "Murder.Systems.Physics.TriggerPhysicsSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "Murder.Systems.Physics.SATPhysicsSystem, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    }
+  ],
+  "features": []
+}

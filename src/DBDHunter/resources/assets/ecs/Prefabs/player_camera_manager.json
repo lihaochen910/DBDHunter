@@ -1,0 +1,37 @@
+{
+  "$type": "Murder.Assets.PrefabAsset",
+  "ShowOnPrefabSelector": false,
+  "Dimensions": {
+    "Origin": {
+      "X": 0,
+      "Y": 0
+    },
+    "Size": {
+      "X": 0,
+      "Y": 0
+    }
+  },
+  "Name": "player_camera_manager",
+  "Guid": "3add2ae5-abe2-4f1a-8183-963a705f988b",
+  "entity": {
+    "IsDeactivated": false,
+    "ActivateWithParent": false,
+    "guid": "b0f2b246-85ce-427c-a936-a35a59daf11d",
+    "name": "player_camera_manager",
+    "components": {
+      "Murder.Components.PositionComponent, Murder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": {
+        "$type": "Murder.Components.PositionComponent",
+        "x": 0,
+        "y": 0
+      },
+      "DBDHunter.Components.RefreshListenerComponent, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": {
+        "$type": "DBDHunter.Components.RefreshListenerComponent",
+        "RefreshTime": 0.005
+      },
+      "DBDHunter.Components.RefreshTimerComponent, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": {
+        "$type": "DBDHunter.Components.RefreshTimerComponent",
+        "Time": -1
+      }
+    }
+  }
+}

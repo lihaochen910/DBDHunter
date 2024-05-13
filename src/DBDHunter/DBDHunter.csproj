@@ -1,0 +1,154 @@
+﻿<Project>
+  <PropertyGroup>
+    <BaseIntermediateOutputPath Condition=" '$(OS)' == 'Windows_NT' ">D:\GitWorkspace\GameScriptLibrary\$(MSBuildProjectName)\obj\$(Configuration)</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath Condition=" '$(OS)' == 'UNIX' ">$(HOME)/GitWorkspace/GameScriptLibrary/$(MSBuildProjectName)/obj/$(Configuration)</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
+  
+  <PropertyGroup>
+    <BaseIntermediateOutputPath Condition=" '$(OS)' == 'Windows_NT' ">D:\GitWorkspace\GameScriptLibrary\$(MSBuildProjectName)\obj</BaseIntermediateOutputPath>
+    <BaseIntermediateOutputPath Condition=" '$(OS)' == 'UNIX' ">$(HOME)/GitWorkspace/GameScriptLibrary/$(MSBuildProjectName)/obj</BaseIntermediateOutputPath>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+
+    <Platforms>AnyCPU</Platforms>
+    <Configurations>Debug;Release;DebugMurderFNA</Configurations>
+    <NoWarn>8981,0649</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <PublishAot>true</PublishAot>
+    <IsTrimmable>false</IsTrimmable>
+
+    <PublishReadyToRun>false</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
+
+    <JsonSerializerIsReflectionEnabledByDefault>false</JsonSerializerIsReflectionEnabledByDefault>
+
+    <!-- Investigate if we need this -->
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+	<GeneratorParentAssembly>Murder</GeneratorParentAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' Or '$(Configuration)|$(Platform)' == 'DebugMurderFNA|AnyCPU' ">
+    <DefineConstants Condition=" '$(OS)' == 'Windows_NT' ">TRACE;WINDOWS</DefineConstants>
+    <DefineConstants Condition=" '$(OS)' == 'UNIX' ">TRACE;MACOS</DefineConstants>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <IntermediateOutputPath Condition=" '$(OS)' == 'Windows_NT' ">D:\GitWorkspace\GameScriptLibrary\$(MSBuildProjectName)\obj\$(Configuration)</IntermediateOutputPath>
+    <IntermediateOutputPath Condition=" '$(OS)' == 'UNIX' ">$(HOME)/GitWorkspace/GameScriptLibrary/$(MSBuildProjectName)/obj/$(Configuration)</IntermediateOutputPath>
+    <OutputPath Condition=" '$(OS)' == 'Windows_NT' ">D:\GitWorkspace\GameScriptLibrary\$(MSBuildProjectName)\$(Configuration)</OutputPath>
+    <OutputPath Condition=" '$(OS)' == 'UNIX' ">$(HOME)/GitWorkspace/GameScriptLibrary/$(MSBuildProjectName)/$(Configuration)</OutputPath>
+  </PropertyGroup>
+  
+  <!-- Resources -->
+  <ItemGroup>
+    <Content Include="..\..\resources\fonts\fonts.murder">
+      <Link>fonts.murder</Link>
+    </Content>
+    <Content Include="..\..\resources\loc\Resources-pt-BR.csv">
+      <Link>loc\Resources-pt-BR.csv</Link>
+    </Content>
+    <Content Include="resources\**" CopyToOutputDirectory="PreserveNewest" LinkBase="resources" />
+    <Content Include="packed\**" CopyToOutputDirectory="PreserveNewest" TargetPath="resources\%(RecursiveDir)\%(Filename)%(Extension)" />
+    <Content Remove="packed\**" />
+    <Content Remove="resources\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="resources\app.manifest" />
+    <None Remove="packed\**" />
+    <None Remove="resources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resources\Icon.bmp">
+      <LogicalName>Icon.bmp</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\Icon.ico">
+      <LogicalName>Icon.ico</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Remove="packed\**" />
+    <EmbeddedResource Remove="resources\**" />
+  </ItemGroup>
+
+  <!-- Generator files -->
+  <ItemGroup>
+    <None Condition="'$(Configuration)' == 'Debug' And '$(Generated)' == 'true' And '$(SkipGenerator)' != true" Include="Generated\.components">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Murder.FNA" Version="24.4.3" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\..\..\GitWorkspace\murder\src\Murder.Editor\Murder.Editor.csproj" Condition=" '$(OS)' == 'UNIX' " />
+    <ProjectReference Include="..\..\..\..\..\..\..\..\GitWorkspace\murder\src\Murder\Murder.csproj" Condition=" '$(OS)' == 'UNIX' " />
+    <ProjectReference Include="..\..\..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang\Bang.csproj" Condition=" '$(OS)' == 'UNIX' " />
+    <ProjectReference Include="..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang\Bang.csproj" Condition=" '$(OS)' == 'Windows_NT' " />
+    <ProjectReference Include="..\..\..\..\..\..\GitWorkspace\murder\src\Murder\Murder.csproj" Condition=" '$(OS)' == 'Windows_NT' " />
+    <ProjectReference Include="..\..\..\..\..\..\GitWorkspace\murder\src\Murder.Editor\Murder.Editor.csproj" Condition=" '$(OS)' == 'Windows_NT' " />
+    <ProjectReference Include="..\..\..\DigitalRune.Geometry\DigitalRune.Geometry.csproj" />
+    <ProjectReference Include="..\..\..\DigitalRune.Logging\DigitalRune.Logging.csproj" />
+    <ProjectReference Include="..\..\..\DigitalRune.Mathematics\DigitalRune.Mathematics.csproj" />
+    <ProjectReference Include="..\..\..\DigitalRune\DigitalRune.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang.Analyzers\Bang.Analyzers.csproj" Condition=" '$(OS)' == 'Windows_NT' ">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <OutputItemType>Analyzer</OutputItemType>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang.Analyzers\Bang.Analyzers.csproj" Condition=" '$(OS)' == 'UNIX' ">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <OutputItemType>Analyzer</OutputItemType>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang.Generator\Bang.Generator.csproj" Condition=" '$(OS)' == 'Windows_NT' ">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <OutputItemType>Analyzer</OutputItemType>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang.Generator\Bang.Generator.csproj" Condition=" '$(OS)' == 'UNIX' ">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <OutputItemType>Analyzer</OutputItemType>
+    </ProjectReference>
+  </ItemGroup>
+
+  <!-- Serialization generator -->
+  <ItemGroup>
+    <CompilerVisibleProperty Include="GeneratorParentAssembly" />
+    
+    <ProjectReference Include="..\..\..\..\..\..\GitWorkspace\murder\src\Murder.Serializer\Murder.Serializer.csproj" Condition=" '$(OS)' == 'Windows_NT' ">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <OutputItemType>Analyzer</OutputItemType>
+    </ProjectReference>
+    
+    <ProjectReference Include="..\..\..\..\..\..\..\..\GitWorkspace\murder\src\Murder.Serializer\Murder.Serializer.csproj" Condition=" '$(OS)' == 'UNIX' ">
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <OutputItemType>Analyzer</OutputItemType>
+    </ProjectReference>
+    
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="packed\**" />
+    <Compile Remove="resources\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ThirdParty\" />
+  </ItemGroup>
+
+  <!-- Generate files! -->
+<!--  <Target Name="GenerateFiles" AfterTargets="PostBuildEvent" Condition="'$(Generated)' != 'true' And '$(Configuration)' == 'Debug' And '$(SkipGenerator)' != true">-->
+<!--    <Exec Command="$(OutputPath)Generator -buildWithBinaries $(MSBuildProjectDirectory) $(MSBuildProjectDirectory)\$(OutDir) $(AssemblyName)" Condition="'$(OS)' != 'WINDOWS_NT'" />-->
+<!--    <Exec Command="$(OutputPath)Generator.exe -buildWithBinaries $(MSBuildProjectDirectory) $(MSBuildProjectDirectory)\$(OutDir) $(AssemblyName)" Condition="'$(OS)' == 'WINDOWS_NT'" />-->
+
+<!--    &lt;!&ndash; After generating these files, build the project again with the generated specs. &ndash;&gt;-->
+<!--    <MSBuild Projects="$(MSBuildProjectFile)" Properties="Generated=true" />-->
+<!--  </Target>-->
+
+  <Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets" />
+
+</Project>
