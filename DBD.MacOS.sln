@@ -25,17 +25,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBDHunter.Editor", "src\DBD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Murder", "Murder", "{CD2B43C0-24D2-494C-A7AF-A9DF35BE771D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Murder", "..\..\..\..\..\..\GitWorkspace\murder\src\Murder\Murder.csproj", "{60EFB16F-26FA-4459-8E64-F16F7A0CC063}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Murder", "..\murder\src\Murder\Murder.csproj", "{60EFB16F-26FA-4459-8E64-F16F7A0CC063}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bang", "..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang\Bang.csproj", "{96C0DE66-186D-4E9D-B270-566FC76217C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bang", "..\murder\bang\src\Bang\Bang.csproj", "{96C0DE66-186D-4E9D-B270-566FC76217C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bang.Analyzers", "..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang.Analyzers\Bang.Analyzers.csproj", "{35F99E2C-BB99-4DA2-82B1-C76D43004295}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bang.Analyzers", "..\murder\bang\src\Bang.Analyzers\Bang.Analyzers.csproj", "{35F99E2C-BB99-4DA2-82B1-C76D43004295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bang.Generator", "..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang.Generator\Bang.Generator.csproj", "{2C4C14F5-C5D7-4D1A-9099-D8A45B123CC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bang.Generator", "..\murder\bang\src\Bang.Generator\Bang.Generator.csproj", "{2C4C14F5-C5D7-4D1A-9099-D8A45B123CC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Murder.Editor", "..\..\..\..\..\..\GitWorkspace\murder\src\Murder.Editor\Murder.Editor.csproj", "{791A36DD-F83F-40BE-AC5C-28D4952F0537}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Murder.Editor", "..\murder\src\Murder.Editor\Murder.Editor.csproj", "{791A36DD-F83F-40BE-AC5C-28D4952F0537}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Murder.Serializer", "..\..\..\..\..\..\GitWorkspace\murder\src\Murder.Serializer\Murder.Serializer.csproj", "{40333193-93C2-4058-9D15-866AE95BDF8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Murder.Serializer", "..\murder\src\Murder.Serializer\Murder.Serializer.csproj", "{40333193-93C2-4058-9D15-866AE95BDF8C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalRune.Mathematics", "..\DigitalRune.Mathematics\DigitalRune.Mathematics.csproj", "{5DF8DD4C-37DF-4EB2-A88D-F3D87C6DEE60}"
 EndProject
@@ -51,7 +51,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalRune.Particles", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalRune.Graphics.Content", "..\DigitalRune.Graphics.Content\DigitalRune.Graphics.Content.csproj", "{EFA1C2FC-5328-4345-8FD5-82CC19CF2D4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gum", "..\..\..\..\..\..\GitWorkspace\murder\gum\src\Gum\Gum.csproj", "{C64897FD-6C25-4521-8862-54610E9C3B9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gum", "..\murder\gum\src\Gum\Gum.csproj", "{C64897FD-6C25-4521-8862-54610E9C3B9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,6 +110,8 @@ Global
 		{96C0DE66-186D-4E9D-B270-566FC76217C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96C0DE66-186D-4E9D-B270-566FC76217C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96C0DE66-186D-4E9D-B270-566FC76217C8}.DebugMurderFNA|Any CPU.ActiveCfg = DebugMurderFNA|Any CPU
+		{96C0DE66-186D-4E9D-B270-566FC76217C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96C0DE66-186D-4E9D-B270-566FC76217C8}.DebugMurderFNA|Any CPU.Build.0 = DebugMurderFNA|Any CPU
 		{35F99E2C-BB99-4DA2-82B1-C76D43004295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{35F99E2C-BB99-4DA2-82B1-C76D43004295}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35F99E2C-BB99-4DA2-82B1-C76D43004295}.Release|Any CPU.Build.0 = Release|Any CPU

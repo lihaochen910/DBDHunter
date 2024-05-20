@@ -2,6 +2,9 @@
 *.suo
 *.user
 
+[Bb]in/
+[Oo]bj/
+
 # Rider
 .idea/
 *.sln.iml

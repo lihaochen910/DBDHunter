@@ -1,8 +1,7 @@
 {
   "$type": "DBDHunter.Assets.DBDHunterProfile",
-  "Library": "00000000-0000-0000-0000-000000000000",
+  "Library": "63b7bab9-8d55-4289-9a78-30867cb0104e",
   "EspViewportSize": {
-    "Length": 2202.9072,
     "X": 1920,
     "Y": 1080
   },
@@ -37,7 +36,7 @@
   "ShowUiDebug": true,
   "PushAwayInterval": 0.05,
   "DefaultGridCellSize": 24,
-  "StartingScene": "00000000-0000-0000-0000-000000000000",
+  "StartingScene": "0313a0ea-7a6f-4f3c-8409-004f100b935e",
   "PreloadTextures": true,
   "Theme": {
     "Bg": {
@@ -202,7 +201,7 @@
   },
   "MissingImage": "485a9a13-e62b-7215-dbc3-9e1df4bcba73",
   "LocalizationResources": {},
-  "Name": "",
+  "Name": "Game Profile",
   "Guid": "62571253-89ed-4233-9fbe-86162b6104f0",
   "scalingFilter": false,
   "DefaultPalette": "images/murder_palette"
