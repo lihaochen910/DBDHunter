@@ -250,7 +250,7 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 		if ( entity.TryGetDbdActorMesh() is {} dbdActorMeshComponent &&
 			 // entity.TryGetDbdActorMeshSockets() is {} dbdActorMeshSocketsComponent &&
 			 entity.TryGetDbdActorMeshCachedBoneSpaceTransforms() is {} dbdActorMeshCachedBoneSpaceTransforms &&
-			 // entity.TryGetDbdActorMeshRefSkeleton() is {} dbdActorMeshRefSkeleton &&
+			 entity.TryGetDbdActorMeshRefSkeleton() is {} dbdActorMeshRefSkeleton &&
 			 entity.TryGetDbdActorSkeletonJointConnectionDefine() is {} dbdActorSkeletonJointConnectionDefine ) {
 			
 			bool MaybeThisBoneICare( FName boneName ) {
@@ -286,6 +286,10 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 			
 			foreach ( var jointConnection in dbdActorSkeletonJointConnectionDefine.Connections ) {
 				// var meshBoneInfoA = dbdActorMeshRefSkeleton.RawRefBoneInfo[ jointConnection.BoneA ];
+				if ( jointConnection.BoneA < 0 || jointConnection.BoneA >=
+					 dbdActorMeshCachedBoneSpaceTransforms.CachedBoneSpaceTransformsData.Length ) {
+					return;
+				}
 				var boneATransform = dbdActorMeshCachedBoneSpaceTransforms.CachedBoneSpaceTransformsData[ jointConnection.BoneA ];
 				var boneAMatrix = boneATransform.ToMatrixWithScale();
 				var boneAInWorld = FMatrix.D3DXMatrixMultiply( in boneAMatrix, in componentToWorldMatrix );
@@ -297,6 +301,10 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 				);
 				
 				// var meshBoneInfoB = dbdActorMeshRefSkeleton.RawRefBoneInfo[ jointConnection.BoneB ];
+				if ( jointConnection.BoneB < 0 ||  jointConnection.BoneB >=
+					dbdActorMeshCachedBoneSpaceTransforms.CachedBoneSpaceTransformsData.Length ) {
+					return;
+				}
 				var boneBTransform = dbdActorMeshCachedBoneSpaceTransforms.CachedBoneSpaceTransformsData[ jointConnection.BoneB ];
 				var boneBMatrix = boneBTransform.ToMatrixWithScale();
 				var boneBInWorld = FMatrix.D3DXMatrixMultiply( in boneBMatrix, in componentToWorldMatrix );

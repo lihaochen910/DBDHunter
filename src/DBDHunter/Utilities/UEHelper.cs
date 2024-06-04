@@ -172,7 +172,10 @@ public static class UEHelper {
 			ushort rowLocation = ( ushort )id;
 			ulong tableLocationAddr = Memory.Read< ulong >( gNamesTable + 0x10 + tableLocation * 0x8 ) + (ulong)(4 * rowLocation);
 			ulong sLength = ( ulong )Memory.Read< ushort >( tableLocationAddr + 0x4 ) >> 1;
-			if ( sLength < 128 ) {
+			
+			// debug:
+			// Memory.PeekAddressBytes( tableLocationAddr, 0x0ff );
+			if ( sLength is < 128 and > 0 ) {
 				var strData = Memory.ReadTArray< byte >( tableLocationAddr + 0x6, ( int )sLength );
 				var str = System.Text.Encoding.ASCII.GetString( strData );
 				if ( !string.IsNullOrEmpty( str ) ) {

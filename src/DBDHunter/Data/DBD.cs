@@ -70,12 +70,20 @@ public static class Offsets {
 	// public const ulong FNames_Epic = 0xE3FF765;
 	
 	// 7.7.1
-	public const ulong GWorld_Steam = 0xEBE0C70;
-	public const ulong FNames_Steam = 0xE97B380;
+	// public const ulong GWorld_Steam = 0xEBE0C70;
+	// public const ulong FNames_Steam = 0xE97B380;
+	// public const ulong GObjects_Steam = 0xEA3DC40;
+	// public const ulong GWorld_Epic = 0xE661B60;
+	// public const ulong FNames_Epic = 0xE40FB80;
+	// public const ulong GObjects_Epic = 0xE4D2400;
+	
+	// 8.0.0
+	public const ulong GWorld_Steam = 0xF319AA0;
+	public const ulong FNames_Steam = 0xF0B41C0;
 	public const ulong GObjects_Steam = 0xEA3DC40;
-	public const ulong GWorld_Epic = 0xE661B60;
-	public const ulong FNames_Epic = 0xE40FB80;
-	public const ulong GObjects_Epic = 0xE4D2400;
+	public const ulong GWorld_Epic = 0xED98AF0;
+	public const ulong FNames_Epic = 0xEB46B00;
+	public const ulong GObjects_Epic = 0xEC09380;
 	
 	
 	// public static ulong UWorld_Levels = 0x180;
@@ -510,12 +518,12 @@ public static class Offsets {
 		new ( JOINT_ShoulderRT, JOINT_ElbowRT ),
 		new ( JOINT_ElbowLT, JOINT_HandLT ),
 		new ( JOINT_ElbowRT, JOINT_HandRT ),
-		new ( JOINT_HandLT, JOINT_FingerALT ),
-		new ( JOINT_HandLT, JOINT_FingerBLT ),
-		new ( JOINT_HandLT, JOINT_FingerCLT ),
-		new ( JOINT_HandRT, JOINT_FingerART ),
-		new ( JOINT_HandRT, JOINT_FingerBRT ),
-		new ( JOINT_HandRT, JOINT_FingerCRT ),
+		// new ( JOINT_HandLT, JOINT_FingerALT ),
+		// new ( JOINT_HandLT, JOINT_FingerBLT ),
+		// new ( JOINT_HandLT, JOINT_FingerCLT ),
+		// new ( JOINT_HandRT, JOINT_FingerART ),
+		// new ( JOINT_HandRT, JOINT_FingerBRT ),
+		// new ( JOINT_HandRT, JOINT_FingerCRT ),
 		new ( JOINT_TorsoC, JOINT_TorsoB ),
 		new ( JOINT_TorsoB, JOINT_TorsoA ),
 		new ( JOINT_TorsoA, JOINT_Pelvis ),
@@ -654,7 +662,8 @@ public static class DBDKillers {
 		( 268435487, "奇点" ),
 		( 268435488, "异形" ),
 		( 268435489, "好孩子" ),
-		( 268435490, "未知恶物" )
+		( 268435490, "未知恶物" ),
+		( 268435491, "巫妖" )
 	];
 
 	public static string GetKillerName( int killerID ) {
@@ -754,6 +763,7 @@ public static class DBDCampers {
 		( 38, "Ellen Ripley" ),
 		( 39, "Alan Wake" ),
 		( 40, "赛贝尔 瓦德" ),
+		( 41, "艾斯翠 亚撒" ),
 	];
 
 	public static string GetCampersName( int camperID ) {

@@ -4,7 +4,6 @@ using Bang.Entities;
 using Bang.Systems;
 using DBDHunter.Components;
 using DBDHunter.Utilities;
-using Microsoft.Extensions.Logging;
 
 
 namespace DBDHunter.Systems; 
@@ -23,6 +22,9 @@ public class DbdEngineInitializeSystem : IReactiveSystem, IExitSystem {
 			entity.RemoveDbdGWorld();
 			entity.RemoveDbdGNames();
 			entity.RemoveRefreshListener();
+			
+			Driver.GWorld = 0;
+			Driver.GNamesTable = 0;
 		}
 	}
 
@@ -47,6 +49,9 @@ public class DbdEngineInitializeSystem : IReactiveSystem, IExitSystem {
 		ulong gNames = dbdGameProcessComponent.BaseAddr + gameProcessEntity.GetDbdGNamesOffset().Offset;
 		if ( gNames != 0 ) {
 			Logger.Debug( $"GNames: 0x{gNames:X8}" );
+			// debug:
+			// Memory.PeekAddressBytes( gNames, 0x0ff );
+			// Memory.PrintStructureByteArray(Vector3D.One);
 			Driver.GNamesTable = gNames;
 			gameProcessEntity.SetDbdGNames( gNames );
 		}

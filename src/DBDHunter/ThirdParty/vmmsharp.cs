@@ -663,6 +663,8 @@ namespace vmmsharp
 
         private bool disposed = false;
         private IntPtr hVMM = IntPtr.Zero;
+        
+        public IntPtr HandleVMM => hVMM;
 
         // private zero-argument constructor - do not use!
         private Vmm()

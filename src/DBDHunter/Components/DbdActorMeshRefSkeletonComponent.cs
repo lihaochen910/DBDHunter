@@ -11,7 +11,7 @@ public readonly struct DbdActorMeshRefSkeletonComponent : IComponent {
 	public FMeshBoneInfo? FindBoneInfoByKeyword( string keyword ) {
 		foreach ( var meshBoneInfo in RawRefBoneInfo ) {
 			var boneName = meshBoneInfo.Name.ToString();
-			if ( boneName.Contains( keyword ) ) {
+			if ( boneName != null && boneName.Contains( keyword ) ) {
 				return meshBoneInfo;
 			}
 		}

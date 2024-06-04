@@ -302,7 +302,7 @@ internal static class Memory {
         foreach ( var b in bytes ) {
             _printByteArrayBuilder.Append( $"{b:X2} " );
             int c = b;
-            ansiView += c is >= 32 and < 128 ? Convert.ToChar( c ) : '?';
+            ansiView += c is >= 32 and < 128 ? Convert.ToChar( c ) : '.';
             
             byteOffset++;
             
@@ -321,6 +321,17 @@ internal static class Memory {
 
     public static void PrintStructureByteArray< T >( T structure ) where T : struct {
         PrintByteArray( StructureToByteArray( structure ) );
+    }
+
+
+    public static void PeekAddressBytes( ulong addr, int size = 0xff, ulong addressHint = 0x0 ) {
+        var bytes = ReadTArray< byte >( addr, size );
+        if ( bytes != null && bytes.Length > 0 ) {
+            PrintByteArray( bytes, addressHint );
+        }
+        else {
+            Logger.Error( $"Failed peek: {addr}." );
+        }
     }
 
     
