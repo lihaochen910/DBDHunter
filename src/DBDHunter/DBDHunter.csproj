@@ -93,6 +93,9 @@
     <ProjectReference Include="..\..\..\DigitalRune.Logging\DigitalRune.Logging.csproj" />
     <ProjectReference Include="..\..\..\DigitalRune.Mathematics\DigitalRune.Mathematics.csproj" />
     <ProjectReference Include="..\..\..\DigitalRune\DigitalRune.csproj" />
+    <ProjectReference Include="..\..\..\murder\bang\src\Bang\Bang.csproj" />
+    <ProjectReference Include="..\..\..\murder\src\Murder.Editor\Murder.Editor.csproj" />
+    <ProjectReference Include="..\..\..\murder\src\Murder\Murder.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -100,7 +103,7 @@
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
       <OutputItemType>Analyzer</OutputItemType>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang.Analyzers\Bang.Analyzers.csproj" Condition=" '$(OS)' == 'UNIX' ">
+    <ProjectReference Include="..\..\..\murder\bang\src\Bang.Analyzers\Bang.Analyzers.csproj" Condition=" '$(OS)' == 'UNIX' ">
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
       <OutputItemType>Analyzer</OutputItemType>
     </ProjectReference>
@@ -111,7 +114,7 @@
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
       <OutputItemType>Analyzer</OutputItemType>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\..\..\GitWorkspace\murder\bang\src\Bang.Generator\Bang.Generator.csproj" Condition=" '$(OS)' == 'UNIX' ">
+    <ProjectReference Include="..\..\..\murder\bang\src\Bang.Generator\Bang.Generator.csproj" Condition=" '$(OS)' == 'UNIX' ">
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
       <OutputItemType>Analyzer</OutputItemType>
     </ProjectReference>
@@ -126,7 +129,7 @@
       <OutputItemType>Analyzer</OutputItemType>
     </ProjectReference>
     
-    <ProjectReference Include="..\..\..\..\..\..\..\..\GitWorkspace\murder\src\Murder.Serializer\Murder.Serializer.csproj" Condition=" '$(OS)' == 'UNIX' ">
+    <ProjectReference Include="..\..\..\murder\src\Murder.Serializer\Murder.Serializer.csproj" Condition=" '$(OS)' == 'UNIX' ">
       <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
       <OutputItemType>Analyzer</OutputItemType>
     </ProjectReference>
@@ -138,6 +141,23 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ThirdParty\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DigitalRune">
+      <HintPath>..\..\libs\DigitalRune.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Geometry">
+      <HintPath>..\..\libs\DigitalRune.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Logging">
+      <HintPath>..\..\libs\DigitalRune.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Mathematics">
+      <HintPath>..\..\libs\DigitalRune.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="DigitalRune.Persistence">
+      <HintPath>..\..\libs\DigitalRune.Persistence.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <!-- Generate files! -->
