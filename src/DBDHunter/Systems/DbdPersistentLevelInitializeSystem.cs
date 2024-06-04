@@ -299,7 +299,7 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 		foreach ( var playerData in _slasherList.Values.Concat( _camperList.Values ) ) {
 			var playerEntity = LibraryServices.GetLibrary().SpawnPrefab( nameof( LibraryAsset.PlayerActor ), world );
 			playerEntity.SetDbdActor( playerData.Actor, playerData.RootComponent, default, default, default );
-			playerEntity.SetDbdActorBoxShape( new BoxShape( new Vector3F( 80f, 30f, 10f ) ) );
+			playerEntity.SetDbdActorBoxShape( new BoxShape( new Vector3F( 80f, 30f, 10f ) ), Vector3F.Zero, 0f );
 			playerEntity.SetDbdPlayerRole( playerData.PlayerRole );
 			
 			if ( playerData.ActorMesh != 0 ) {

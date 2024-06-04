@@ -161,6 +161,33 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 		render.GameplayBatch.DrawLine( corner2, corner6, color, sort );
 		render.GameplayBatch.DrawLine( corner3, corner7, color, sort );
 	}
+
+
+	// private static void DrawBoxShape( RenderContext render, in FBoxSphereBounds boxShape, Pose pose, Color color, float sort,
+	// 								  in DbdPlayerCameraManagerComponent playerCameraManagerComponent ) {
+	// 	var corner0 = ProjectWorldToScreen( new Vector3F( aabb.Minimum.X, aabb.Minimum.Y, aabb.Maximum.Z ), in playerCameraManagerComponent );
+	// 	var corner1 = ProjectWorldToScreen( new Vector3F( aabb.Maximum.X, aabb.Minimum.Y, aabb.Maximum.Z ), in playerCameraManagerComponent );
+	// 	var corner2 = ProjectWorldToScreen( aabb.Maximum, in playerCameraManagerComponent );
+	// 	var corner3 = ProjectWorldToScreen( new Vector3F( aabb.Minimum.X, aabb.Maximum.Y, aabb.Maximum.Z ), in playerCameraManagerComponent );
+	// 	var corner4 = ProjectWorldToScreen( aabb.Minimum, in playerCameraManagerComponent );
+	// 	var corner5 = ProjectWorldToScreen( new Vector3F( aabb.Maximum.X, aabb.Minimum.Y, aabb.Minimum.Z ), in playerCameraManagerComponent );
+	// 	var corner6 = ProjectWorldToScreen( new Vector3F( aabb.Maximum.X, aabb.Maximum.Y, aabb.Minimum.Z ), in playerCameraManagerComponent );
+	// 	var corner7 = ProjectWorldToScreen( new Vector3F( aabb.Minimum.X, aabb.Maximum.Y, aabb.Minimum.Z ), in playerCameraManagerComponent );
+	// 	
+	// 	render.GameplayBatch.DrawLine( corner0, corner1, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner1, corner2, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner2, corner3, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner0, corner3, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner4, corner5, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner5, corner6, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner6, corner7, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner7, corner4, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner0, corner4, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner1, corner5, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner2, corner6, color, sort );
+	// 	render.GameplayBatch.DrawLine( corner3, corner7, color, sort );
+	// }
+	
 	
 	private BoxShape _camperBoxShape = new ( new Vector3F( 20f, 30f, 80f ) );
 	private BoxShape _slasherBoxShape = new ( new Vector3F( 50f, 50f, 180f ) );
@@ -218,23 +245,23 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 				DrawBorder(BoxMax2D.X, BoxMax2D.Y, BoxMin2D.X - BoxMax2D.X, BoxMin2D.Y - BoxMax2D.Y, Color);
 			}
 		 */
-		// if ( entity.TryGetDbdActorBoxShape() is {} dbdActorBoxShapeComponent ) {
-		// 	var actorComponent = entity.GetDbdActor();
-		// 	var pose = new PoseD( actorComponent.RelativeLocation );
-		// 	// pose.Orientation = Matrix33D.CreateRotationZ( actorComponent.RelativeRotation.Z ) *
-		// 	// 				   Matrix33D.CreateRotationX( actorComponent.RelativeRotation.X ) *
-		// 	// 				   Matrix33D.CreateRotationY( actorComponent.RelativeRotation.Y );
-		//
-		// 	// DrawAxes( render, ( Pose )pose, 10f, 1f, in playerCameraManagerComponent );
-		// 	
-		// 	var color = playerRole is EPlayerRole.VE_Slasher
-		// 		? uiSkinAsset.SlasherBoneColor
-		// 		: uiSkinAsset.CamperBoneColor;
-		// 	// var aabb = dbdActorBoxShapeComponent.BoxShape.GetAabb( ( Pose )pose );
-		// 	DrawBoxShape( render, playerRole is EPlayerRole.VE_Slasher ? _slasherBoxShape : _camperBoxShape, ( Pose )pose, color, 1f, in playerCameraManagerComponent );
-		// }
-
-		// TODO:
+		if ( entity.TryGetDbdActorBoxShape() is {} dbdActorBoxShapeComponent ) {
+			var actorComponent = entity.GetDbdActor();
+			var pose = new PoseD( actorComponent.RelativeLocation );
+			// pose.Orientation = Matrix33D.CreateRotationZ( actorComponent.RelativeRotation.Z ) *
+			// 				   Matrix33D.CreateRotationX( actorComponent.RelativeRotation.X ) *
+			// 				   Matrix33D.CreateRotationY( actorComponent.RelativeRotation.Y );
+		
+			// DrawAxes( render, ( Pose )pose, 10f, 1f, in playerCameraManagerComponent );
+			
+			var color = playerRole is EPlayerRole.VE_Slasher
+				? uiSkinAsset.SlasherBoneColor
+				: uiSkinAsset.CamperBoneColor;
+			// var aabb = dbdActorBoxShapeComponent.BoxShape.GetAabb( ( Pose )pose );
+			// DrawBoxShape( render, playerRole is EPlayerRole.VE_Slasher ? _slasherBoxShape : _camperBoxShape, ( Pose )pose, color, 1f, in playerCameraManagerComponent );
+			DrawBoxShape( render, dbdActorBoxShapeComponent.BoxShape, ( Pose )pose, color, 1f, in playerCameraManagerComponent );
+		}
+		
 		/*
 			Matrix4x4 ComponentMatrix = ToMatrixWithScale(WorldToComponent.Translation, WorldToComponent.Rotation, WorldToComponent.Scale3D);
 			Matrix4x4 BoneMatrix = ToMatrixWithScale(BoneTrans, BoneRot, BoneScale);

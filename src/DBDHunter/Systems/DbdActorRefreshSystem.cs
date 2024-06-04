@@ -4,6 +4,7 @@ using Bang.Entities;
 using Bang.Systems;
 using DBDHunter.Components;
 using DBDHunter.Utilities;
+using DigitalRune.Geometry.Shapes;
 using DigitalRune.Mathematics.Algebra;
 using Murder;
 using vmmsharp;
@@ -51,6 +52,7 @@ internal class DbdActorRefreshSystem : IStartupSystem, IExitSystem, IUpdateSyste
 			if ( entity.TryGetDbdActorMesh() is {} dbdActorMeshComponent ) {
 				handle.Prepare< ulong >( dbdActorMeshComponent.ActorAddr + Offsets.ACharacter_Mesh );
 				handle.Prepare< ulong >( dbdActorMeshComponent.ActorMeshAddr + Offsets.USkinnedMeshComponent_SkeletalMesh );
+				handle.Prepare< FBoxSphereBounds >( dbdActorMeshComponent.ActorMeshAddr + Offsets.USkinnedMeshComponent_CachedWorldOrLocalSpaceBounds );
 				handle.Prepare< ulong >( dbdActorMeshComponent.ActorMeshAddr + Offsets.USkeletalMeshComponent_ComponentSpaceTransformsArray );
 				handle.Prepare< int >( dbdActorMeshComponent.ActorMeshAddr + Offsets.USkeletalMeshComponent_ComponentSpaceTransformsArray + Offsets.TArray_NumElements );
 			}
@@ -137,6 +139,27 @@ internal class DbdActorRefreshSystem : IStartupSystem, IExitSystem, IUpdateSyste
 					cachedBoneSpaceTransforms,
 					cachedBoneSpaceTransformsNum
 				);
+				
+				var cachedWorldOrLocalSpaceBounds = handle.Read< FBoxSphereBounds >( dbdActorMeshComponent.ActorMeshAddr + Offsets.USkinnedMeshComponent_CachedWorldOrLocalSpaceBounds );
+				var boxExtent = cachedWorldOrLocalSpaceBounds.BoxExtent;
+				var origin = cachedWorldOrLocalSpaceBounds.Origin;
+
+				if ( entity.TryGetDbdActorBoxShape() is {} dbdActorBoxShapeComponent ) {
+					var boxShape = dbdActorBoxShapeComponent.BoxShape;
+					boxShape.Extent = new Vector3F( ( float ) boxExtent.X, ( float ) boxExtent.Y, ( float ) boxExtent.Z );
+					entity.SetDbdActorBoxShape(
+						boxShape,
+						new Vector3F( ( float )origin.X, ( float )origin.Y, ( float )origin.Z ),
+						( float )cachedWorldOrLocalSpaceBounds.SphereRadius
+					);
+				}
+				else {
+					entity.SetDbdActorBoxShape(
+						new BoxShape( new Vector3F( ( float )boxExtent.X, ( float )boxExtent.Y, ( float )boxExtent.Z ) ),
+						new Vector3F( ( float )origin.X, ( float )origin.Y, ( float )origin.Z ),
+						( float )cachedWorldOrLocalSpaceBounds.SphereRadius
+					);
+				}
 			}
 		}
 
