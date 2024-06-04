@@ -259,6 +259,7 @@ public static class Offsets {
 	public const string CLASS_Slasher = "SlasherPlayer";
 	public const string CLASS_Camper = "CamperPlayer";
 	public const string CLASS_DBDMenuPlayer = "DBDMenuPlayer";
+	public const string CLASS_DBDPlayer = "DBDPlayer";
 
 
 	#region Player Bone
@@ -938,6 +939,14 @@ public static class DBDAddons {
 		{ "Addon_Kanobo_SplinteredHull", "破碎船身" },
 		{ "Addon_Kanobo_WoodenOniMask", "木制鬼武者面具" },
 		{ "Addon_Kanobo_LionFang", "狮牙" },
+		
+		// 老杨
+		{ "Addon_Spark_IridescentGeneral", "多彩国王" },
+		{ "Addon_Spark_JadeCharm", "莹红皇后" },
+		{ "Addon_Spark_RestraintMuYisNotes", "枷锁" },
+		{ "Addon_Spark_OrderMuYisNotes", "秩序" },
+		{ "Addon_Spark_DisciplineMuYisNotes", "纪律" },
+		{ "Addon_Spark_CalmMuYisNotes", "镇静" },
 
 		
 
@@ -1186,6 +1195,9 @@ public static class DBDPerks {
 		{ "DarkDevotion", "黑暗奉献" },
 		{ "DragonsGrip", "龙爪" },
 		{ "K29P01", "超人类体能" },
+		{ "K36P01", "致倦惊鸦" },
+		{ "K36P02", "魔网同调" },
+		{ "K36P03", "黑暗狂傲" },
 		
 		// 人类技能
 		{ "BetterTogether", "一同离去" },
@@ -1328,6 +1340,9 @@ public static class DBDPerks {
 		{ "K35P03", "再接再厉" },
 		{ "K35P01", "挣脱绑定" },
 		{ "K35P02", "出乎意料" },
+		{ "S42P01", "镜像幻术" },
+		{ "S42P02", "吟诗助阵" },
+		{ "S42P03", "静观其气" },
 		
 	}.ToImmutableDictionary();
 

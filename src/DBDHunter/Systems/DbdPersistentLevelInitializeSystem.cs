@@ -153,7 +153,7 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 				var actorClass = firstPassReadHandle.Read< ulong >( actor + Offsets.UObject_Class );
 				// var actorName = Memory.Read< FName >( actor + Offsets.UObject_Name, entityListReadHandle );
 
-				if ( actor.IsA( "DBDPlayer", actorClass ) ) {
+				if ( actor.IsA( Offsets.CLASS_DBDPlayer, actorClass ) ) {
 					dbdPlayerList.Add( actor );
 				}
 			

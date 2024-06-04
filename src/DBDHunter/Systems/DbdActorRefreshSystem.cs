@@ -146,7 +146,10 @@ internal class DbdActorRefreshSystem : IStartupSystem, IExitSystem, IUpdateSyste
 
 				if ( entity.TryGetDbdActorBoxShape() is {} dbdActorBoxShapeComponent ) {
 					var boxShape = dbdActorBoxShapeComponent.BoxShape;
-					boxShape.Extent = new Vector3F( ( float ) boxExtent.X, ( float ) boxExtent.Y, ( float ) boxExtent.Z );
+					try {
+						boxShape.Extent = new Vector3F( ( float )boxExtent.X, ( float )boxExtent.Y, ( float )boxExtent.Z );
+					}
+					catch ( ArgumentOutOfRangeException ) {}
 					entity.SetDbdActorBoxShape(
 						boxShape,
 						new Vector3F( ( float )origin.X, ( float )origin.Y, ( float )origin.Z ),
@@ -154,8 +157,13 @@ internal class DbdActorRefreshSystem : IStartupSystem, IExitSystem, IUpdateSyste
 					);
 				}
 				else {
+					var boxShape = new BoxShape();
+					try {
+						boxShape.Extent = new Vector3F( ( float )boxExtent.X, ( float )boxExtent.Y, ( float )boxExtent.Z );
+					}
+					catch ( ArgumentOutOfRangeException ) {}
 					entity.SetDbdActorBoxShape(
-						new BoxShape( new Vector3F( ( float )boxExtent.X, ( float )boxExtent.Y, ( float )boxExtent.Z ) ),
+						boxShape,
 						new Vector3F( ( float )origin.X, ( float )origin.Y, ( float )origin.Z ),
 						( float )cachedWorldOrLocalSpaceBounds.SphereRadius
 					);

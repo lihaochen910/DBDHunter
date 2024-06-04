@@ -39,9 +39,16 @@
     }
   },
   "CamperBoneColor": {
+    "R": 0.86543536,
+    "G": 0.86543536,
+    "B": 0.86543536,
+    "A": 1
+  },
+  "DrawCamperBoundingBox": false,
+  "CamperBoundingBoxColor": {
     "R": 0,
     "G": 1,
-    "B": 0.08970976,
+    "B": 0,
     "A": 1
   },
   "SlasherNameColor": {
@@ -83,6 +90,13 @@
     }
   },
   "SlasherBoneColor": {
+    "R": 1,
+    "G": 0,
+    "B": 0,
+    "A": 1
+  },
+  "DrawSlasherBoundingBox": true,
+  "SlasherBoundingBoxColor": {
     "R": 1,
     "G": 0,
     "B": 0,

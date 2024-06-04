@@ -255,11 +255,15 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 			// DrawAxes( render, ( Pose )pose, 10f, 1f, in playerCameraManagerComponent );
 			
 			var color = playerRole is EPlayerRole.VE_Slasher
-				? uiSkinAsset.SlasherBoneColor
-				: uiSkinAsset.CamperBoneColor;
+				? uiSkinAsset.SlasherBoundingBoxColor
+				: uiSkinAsset.CamperBoundingBoxColor;
 			// var aabb = dbdActorBoxShapeComponent.BoxShape.GetAabb( ( Pose )pose );
 			// DrawBoxShape( render, playerRole is EPlayerRole.VE_Slasher ? _slasherBoxShape : _camperBoxShape, ( Pose )pose, color, 1f, in playerCameraManagerComponent );
-			DrawBoxShape( render, dbdActorBoxShapeComponent.BoxShape, ( Pose )pose, color, 1f, in playerCameraManagerComponent );
+			var drawEnabled = playerRole is EPlayerRole.VE_Slasher && uiSkinAsset.DrawSlasherBoundingBox ||
+							  playerRole is EPlayerRole.VE_Camper && uiSkinAsset.DrawCamperBoundingBox;
+			if ( drawEnabled ) {
+				DrawBoxShape( render, dbdActorBoxShapeComponent.BoxShape, ( Pose )pose, color, 1f, in playerCameraManagerComponent );
+			}
 		}
 		
 		/*

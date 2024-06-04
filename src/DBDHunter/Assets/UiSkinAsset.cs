@@ -18,10 +18,14 @@ public class UiSkinAsset : GameAsset {
 	public Color CamperNameColor = Color.White;
 	public DrawInfo CamperNameDrawInfo = DrawInfo.Default;
 	public Color CamperBoneColor = Color.Green;
+	public bool DrawCamperBoundingBox = false;
+	public Color CamperBoundingBoxColor = Color.Green;
 	
 	public Color SlasherNameColor = Color.Red;
 	public DrawInfo SlasherNameDrawInfo = DrawInfo.Default;
 	public Color SlasherBoneColor = Color.Red;
+	public bool DrawSlasherBoundingBox = true;
+	public Color SlasherBoundingBoxColor = Color.Red;
 	
 	public Color GeneratorNameColor = Color.Yellow;
 	public DrawInfo GeneratorNameDrawInfo = DrawInfo.Default;
