@@ -164,6 +164,8 @@ public static class Offsets {
 	
 	public static ulong APallet_State = 0x03E0;
 	
+	public static ulong ABaseTrap_IsTrapSet = 0x0538;
+	
 	public static ulong AActor_RootComponent = 0x01A8;
 	public static ulong APawn_PlayerState = 0x02C0;
 	public static ulong APawn_AcknowledgedPawn = 0x02F8;
@@ -230,17 +232,11 @@ public static class Offsets {
 	public static ulong UObject_Class = 0x0010;
 	public static ulong UObject_Name = 0x0018;
 
-
-	public static string KEYWORD_Pallet = "Pallet";
-	public static string KEYWORD_Hatch = "Hatch";
+	
 	public static string KEYWORD_EscapeDoor = "EscapeDoor";
-	public static string KEYWORD_BearTrap = "BearTrap";
-	public static string KEYWORD_Generator = "Generator";
 	public static string KEYWORD_Window = "Window";
 	public static string KEYWORD_Locker = "Locker";
 	public static string KEYWORD_BreakableBase = "BreakableBase";
-	public static string KEYWORD_Searchable = "Searchable";
-	public static string KEYWORD_Totem= "Totem";
 	public static string KEYWORD_MeatHook = "MeatHook";
 	public static string KEYWORD_Slasher = "Slasher";
 	public static string KEYWORD_Camper = "Camper";
@@ -249,6 +245,7 @@ public static class Offsets {
 	public const string CLASS_SkinnedMeshComponent = "SkinnedMeshComponent";
 	public const string CLASS_SkeletalMesh = "SkeletalMesh";
 
+	public const string CLASS_BearTrap = "BearTrap";
 	public const string CLASS_Pallet = "Pallet";
 	public const string CLASS_Hatch = "Hatch";
 	public const string CLASS_Generator = "Generator";
@@ -1195,8 +1192,8 @@ public static class DBDPerks {
 		{ "DarkDevotion", "黑暗奉献" },
 		{ "DragonsGrip", "龙爪" },
 		{ "K29P01", "超人类体能" },
-		{ "K36P01", "致倦惊鸦" },
-		{ "K36P02", "魔网同调" },
+		{ "K36P01", "魔网同调" },
+		{ "K36P02", "致倦惊鸦" },
 		{ "K36P03", "黑暗狂傲" },
 		
 		// 人类技能

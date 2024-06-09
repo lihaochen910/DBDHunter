@@ -284,16 +284,17 @@ public class DbdDebugSystem : IGuiSystem {
 			var pallets = context.World.GetEntitiesWith( typeof( DbdPalletComponent ) );
 			if ( !pallets.IsDefaultOrEmpty ) {
 				foreach ( var pallet in pallets ) {
-					var dbdPalletComponent = pallet.GetDbdPallet();
-					ImGui.Text( $"pallet: 0x{dbdPalletComponent.Addr:x8}" );
-					if ( dbdPalletComponent.Addr != 0 ) {
+					var dbdPalletActor = pallet.GetDbdActor();
+					// var dbdPalletComponent = pallet.GetDbdPallet();
+					ImGui.Text( $"pallet: 0x{dbdPalletActor.ActorAddr:x8}" );
+					if ( dbdPalletActor.ActorAddr != 0 ) {
 						ImGui.Indent( 8 );
 						if ( ImGui.Button( "Set Pallet: Up" ) ) {
-							Memory.Write( dbdPalletComponent.Addr + Offsets.APallet_State, ( byte )EPalletState.Up );
+							Memory.Write( dbdPalletActor.ActorAddr + Offsets.APallet_State, ( byte )EPalletState.Up );
 						}
 						ImGui.SameLine();
 						if ( ImGui.Button( "Set Pallet: Fallen" ) ) {
-							Memory.Write( dbdPalletComponent.Addr + Offsets.APallet_State, ( byte )EPalletState.Fallen );
+							Memory.Write( dbdPalletActor.ActorAddr + Offsets.APallet_State, ( byte )EPalletState.Fallen );
 						}
 						ImGui.Unindent( 8 );
 					}

@@ -45,5 +45,6 @@ public class UiSkinAsset : GameAsset {
 	public DrawInfo PalletNameDrawInfo = DrawInfo.Default;
 	public Color PalletBoneColor = Color.Orange;
 
-	
+	public DrawInfo BearTrapNameDrawInfo = DrawInfo.Default;
+	public Color BearTrapBoneColor = Color.Yellow;
 }

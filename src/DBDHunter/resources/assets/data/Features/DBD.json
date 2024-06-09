@@ -21,19 +21,15 @@
       "Item2": true
     },
     {
+      "Item1": "DBDHunter.Systems.DbdGWorldWatchSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
       "Item1": "DBDHunter.Systems.DbdGameInstanceRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Item2": true
     },
     {
       "Item1": "DBDHunter.Systems.DbdPersistentLevelInitializeSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "Item2": true
-    },
-    {
-      "Item1": "DBDHunter.Systems.DbdPersistentLevelRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "Item2": true
-    },
-    {
-      "Item1": "DBDHunter.Systems.DbdGWorldWatchSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Item2": true
     },
     {
@@ -49,6 +45,10 @@
       "Item2": true
     },
     {
+      "Item1": "DBDHunter.Systems.DbdActorSkeletonConnectionInitializeSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
       "Item1": "DBDHunter.Systems.DbdPlayerEspRenderSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Item2": true
     },
@@ -58,7 +58,7 @@
     },
     {
       "Item1": "DBDHunter.Systems.DbdDebugSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "Item2": true
+      "Item2": false
     },
     {
       "Item1": "DBDHunter.Systems.DbdGameStateRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -69,7 +69,7 @@
       "Item2": true
     },
     {
-      "Item1": "DBDHunter.Systems.DbdActorSkeletonConnectionInitializeSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item1": "DBDHunter.Systems.DbdPlayerStateDataUiSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Item2": true
     },
     {
@@ -77,15 +77,19 @@
       "Item2": true
     },
     {
-      "Item1": "DBDHunter.Systems.DbdPlayerStateDataUiSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "Item2": true
-    },
-    {
       "Item1": "DBDHunter.Systems.DbdGeneratorRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Item2": true
     },
     {
+      "Item1": "DBDHunter.Systems.DbdPalletRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
       "Item1": "DBDHunter.Systems.DbdTotemRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "Item2": true
+    },
+    {
+      "Item1": "DBDHunter.Systems.DbdBearTrapRefreshSystem, DBDHunter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
       "Item2": true
     }
   ],

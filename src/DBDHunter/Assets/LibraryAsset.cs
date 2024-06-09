@@ -51,6 +51,9 @@ public class LibraryAsset : GameAsset {
 
 	[GameAssetId< PrefabAsset >]
 	public readonly Guid Pallet = Guid.Empty;
+	
+	[GameAssetId< PrefabAsset >]
+	public readonly Guid BearTrap = Guid.Empty;
 
 	
 	

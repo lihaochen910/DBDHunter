@@ -7,9 +7,7 @@ using DigitalRune.Geometry;
 using DigitalRune.Geometry.Shapes;
 using DigitalRune.Mathematics;
 using DigitalRune.Mathematics.Algebra;
-using Microsoft.Xna.Framework;
 using Murder.Core.Graphics;
-using Murder.Editor.Services;
 using Murder.Services;
 using Murder.Utilities;
 using Color = Murder.Core.Graphics.Color;
@@ -85,6 +83,10 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 			
 			if ( entity.HasDbdPallet() ) {
 				DrawPalletEsp( render, entity, in relativeLocation, distance, in playerCameraManagerComponent, resolution );
+			}
+			
+			if ( entity.HasDbdBearTrap() ) {
+				DrawBearTrapEsp( render, entity, in relativeLocation, distance, in playerCameraManagerComponent, resolution );
 			}
 		}
 	}
@@ -401,7 +403,7 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 	}
 
 
-	private BoxShape _generatorBoxShape = new ( new Vector3F( 20f, 30f, 60f ) );
+	private readonly BoxShape _generatorBoxShape = new ( new Vector3F( 20f, 30f, 60f ) );
 	private void DrawGeneratorEsp( RenderContext render, Entity entity, in Vector3D relativeLocation,
 								   double distance, in DbdPlayerCameraManagerComponent playerCameraManagerComponent,
 								   Vector2I resolution ) {
@@ -431,7 +433,7 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 	}
 	
 	
-	private BoxShape _hatchBoxShape = new ( new Vector3F( 40f, 40f, 10f ) );
+	private readonly BoxShape _hatchBoxShape = new ( new Vector3F( 40f, 40f, 10f ) );
 	private void DrawHatchEsp( RenderContext render, Entity entity, in Vector3D relativeLocation,
 							   double distance, in DbdPlayerCameraManagerComponent playerCameraManagerComponent,
 								Vector2I resolution ) {
@@ -458,7 +460,7 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 	}
 	
 	
-	private BoxShape _totemShape = new ( new Vector3F( 15f, 20f, 30f ) );
+	private readonly BoxShape _totemShape = new ( new Vector3F( 15f, 20f, 30f ) );
 	private void DrawTotemEsp( RenderContext render, Entity entity, in Vector3D relativeLocation,
 							   double distance, in DbdPlayerCameraManagerComponent playerCameraManagerComponent,
 							   Vector2I resolution ) {
@@ -495,7 +497,7 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 	}
 	
 	
-	private BoxShape _searchableShape = new ( new Vector3F( 30f, 30f, 10f ) );
+	private readonly BoxShape _searchableShape = new ( new Vector3F( 30f, 30f, 10f ) );
 	private void DrawSearchableEsp( RenderContext render, Entity entity, in Vector3D relativeLocation,
 									double distance, in DbdPlayerCameraManagerComponent playerCameraManagerComponent,
 									Vector2I resolution ) {
@@ -523,9 +525,7 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 								Vector2I resolution ) {
 		
 		var palletComponent = entity.GetDbdPallet();
-		if ( palletComponent.State != EPalletState.Up &&
-			 palletComponent.State is EPalletState.Fallen &&
-			 palletComponent.State is EPalletState.Falling ) {
+		if ( palletComponent.State != EPalletState.Up ) {
 			return;
 		}
 		
@@ -538,5 +538,35 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 		);
 		
 		render.GameUiBatch.DrawText( MurderFonts.PixelFont, $"Pallet - {palletComponent.State} ({distance:0.0}m)", new Vector2( ( float )palletScreenPos.X, ( float )palletScreenPos.Y ), uiSkinAsset.PalletNameDrawInfo );
+	}
+	
+	
+	private readonly BoxShape _bearTrapShape = new ( new Vector3F( 15f, 15f, 10f ) );
+	private void DrawBearTrapEsp( RenderContext render, Entity entity, in Vector3D relativeLocation,
+								double distance, in DbdPlayerCameraManagerComponent playerCameraManagerComponent,
+								Vector2I resolution ) {
+		
+		var bearTrapComponent = entity.GetDbdBearTrap();
+		if ( !bearTrapComponent.IsTrapSet ) {
+			return;
+		}
+		
+		var uiSkinAsset = LibraryServices.GetUiSkin();
+		
+		var bearTrapScreenPos = UEViewMatrix.WorldToScreen(
+			playerCameraManagerComponent.CameraEntry.POV,
+			relativeLocation,
+			resolution
+		);
+		
+		render.GameUiBatch.DrawText( MurderFonts.PixelFont, $"Trap ({distance:0.0}m)", new Vector2( ( float )bearTrapScreenPos.X, ( float )bearTrapScreenPos.Y ), uiSkinAsset.BearTrapNameDrawInfo );
+		
+		var actorComponent = entity.GetDbdActor();
+		var pose = new PoseD( actorComponent.RelativeLocation + new Vector3D( 0, 0, _generatorBoxShape.WidthZ / 2d ) );
+		pose.Orientation = Matrix33D.CreateRotationZ( actorComponent.RelativeRotation.Z ) *
+						   Matrix33D.CreateRotationX( actorComponent.RelativeRotation.X ) *
+						   Matrix33D.CreateRotationY( actorComponent.RelativeRotation.Y );
+		
+		DrawBoxShape( render, _bearTrapShape, ( Pose )pose, uiSkinAsset.BearTrapBoneColor, 1f, in playerCameraManagerComponent );
 	}
 }

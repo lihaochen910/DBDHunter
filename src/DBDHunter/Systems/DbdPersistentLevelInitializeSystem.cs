@@ -38,6 +38,7 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 	private readonly List< ulong > _totemList = new ( 5 );
 	private readonly List< ulong > _searchablesList = new ( 8 );
 	private readonly List< ulong > _palletsList = new ( 30 );
+	private readonly List< ulong > _bearTrapList = new ( 12 );
 
 	private Entity _coroutineEntity;
 	
@@ -177,6 +178,10 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 			
 				if ( actor.IsA( Offsets.CLASS_Pallet, actorClass ) ) {
 					_palletsList.Add( actor );
+				}
+				
+				if ( actor.IsA( Offsets.CLASS_BearTrap, actorClass ) ) {
+					_bearTrapList.Add( actor );
 				}
 				
 				if ( actor.IsA( Offsets.CLASS_Slasher, actorClass ) ||
@@ -357,6 +362,15 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 			handle.Prepare< ulong >( pallet + Offsets.AActor_RootComponent );
 			handle.Prepare< ulong >( pallet + Offsets.APallet_State );
 		}
+		
+		foreach ( var trap in _bearTrapList ) {
+			if ( trap is 0 ) {
+				continue;
+			}
+			
+			handle.Prepare< ulong >( trap + Offsets.AActor_RootComponent );
+			handle.Prepare< ulong >( trap + Offsets.ABaseTrap_IsTrapSet );
+		}
 
 		handle.Execute();
 		
@@ -431,9 +445,20 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 			var palletEntity = LibraryServices.GetLibrary().SpawnPrefab( nameof( LibraryAsset.Pallet ), world );
 			palletEntity.SetDbdActor( pallet, rootComponent, default, Vector3D.Zero, Vector3D.One );
 			palletEntity.SetDbdPallet(
-				pallet,
 				( EPalletState )handle.Read< byte >( pallet + Offsets.APallet_State )
 			);
+		}
+		
+		foreach ( var bearTrap in _bearTrapList ) {
+			if ( bearTrap is 0 ) {
+				continue;
+			}
+			
+			var rootComponent = handle.Read< ulong >( bearTrap + Offsets.AActor_RootComponent );
+			
+			var bearTrapEntity = LibraryServices.GetLibrary().SpawnPrefab( nameof( LibraryAsset.BearTrap ), world );
+			bearTrapEntity.SetDbdActor( bearTrap, rootComponent, default, Vector3D.Zero, Vector3D.One );
+			bearTrapEntity.SetDbdBearTrap( handle.Read< bool >( bearTrap + Offsets.ABaseTrap_IsTrapSet ) );
 		}
 		
 		handle.SafeClose();
@@ -453,6 +478,7 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 	
 	private IEnumerator< Wait > LoopTravelPersistentLevel( World world, Entity entity ) {
 		var ok = false;
+		var bearTrapCount = 0;
 
 		while ( !ok ) {
 			if ( world.TryGetUniqueEntity< DbdGameStateComponent >() is null ) {
@@ -485,6 +511,9 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 			_searchablesList.Clear();
 			_palletsList.Clear();
 
+			bearTrapCount = _bearTrapList.Count;
+			_bearTrapList.Clear();
+
 			if ( !ok ) {
 				DestroyAllDbdActors( world );
 			}
@@ -492,6 +521,7 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 			yield return Wait.ForSeconds( 1f );
 		}
 		
+		Logger.Debug( $"BearTrap: {bearTrapCount}" );
 		Logger.Debug( "finished LoopTravelPersistentLevel()." );
 		yield return Wait.Stop;
 	}

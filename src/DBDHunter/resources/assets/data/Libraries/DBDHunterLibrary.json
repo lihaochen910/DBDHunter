@@ -7,6 +7,12 @@
   "LocalPlayers": "b9363ae5-e546-4bdf-ab3e-f64051b71865",
   "PlayerActor": "424e0d02-1f3c-481c-98c1-de4f1298ab57",
   "PlayerState": "afebaa34-2da8-4b2b-90ea-47bbe8c9c03b",
+  "Generator": "66337cbb-e391-4cbf-b55a-586640e4053a",
+  "Hatch": "44efeae3-9bce-4c97-b82e-73c0ced8439f",
+  "Totem": "38c04f4e-82b6-4702-867a-f66a94058327",
+  "Searchable": "ebb7f318-6371-457a-a853-4b8274ad2c2f",
+  "Pallet": "b19f8b5d-8680-4ec3-81cd-4632670f8fb0",
+  "BearTrap": "1bf9538d-3a64-4611-86f4-ae38b2031087",
   "Name": "DBDHunterLibrary",
   "Guid": "63b7bab9-8d55-4289-9a78-30867cb0104e"
 }
