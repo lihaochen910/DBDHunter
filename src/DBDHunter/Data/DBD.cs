@@ -78,12 +78,21 @@ public static class Offsets {
 	// public const ulong GObjects_Epic = 0xE4D2400;
 	
 	// 8.0.0
-	public const ulong GWorld_Steam = 0xF319AA0;
-	public const ulong FNames_Steam = 0xF0B41C0;
-	public const ulong GObjects_Steam = 0xEA3DC40;
-	public const ulong GWorld_Epic = 0xED98AF0;
-	public const ulong FNames_Epic = 0xEB46B00;
-	public const ulong GObjects_Epic = 0xEC09380;
+	// public const ulong GWorld_Steam = 0xF319AA0;
+	// public const ulong FNames_Steam = 0xF0B41C0;
+	// public const ulong GObjects_Steam = 0xEA3DC40;
+	// public const ulong GWorld_Epic = 0xED98AF0;
+	// public const ulong FNames_Epic = 0xEB46B00;
+	// public const ulong GObjects_Epic = 0xEC09380;
+	
+	
+	// 8.0.1
+	public const ulong GWorld_Steam = 0xF34CE80;
+	public const ulong FNames_Steam = 0xF0E7530;
+	public const ulong GObjects_Steam = 0xF1A9E80;
+	public const ulong GWorld_Epic = 0xEDCCE50;
+	public const ulong FNames_Epic = 0xEB7AE80;
+	public const ulong GObjects_Epic = 0xEC3D700;
 	
 	
 	// public static ulong UWorld_Levels = 0x180;
@@ -1049,6 +1058,7 @@ public static class DBDFavors {
 		{ "ShrikeWreath", "鹃祭环" },
 		{ "SpottedOwlWreath", "鹰祭环" },
 		{ "BloodyPartyStreamers", "辣条" },
+		{ "Anniversary2024Offering", "尖叫馅饼" },
 		{ "Anniversary2023Offering", "恐怖提拉米苏" },
 		{ "Anniversary2022Offering", "恐怖布丁" },
 		{ "Anniversary2021Offering", "祭祀蛋糕" },
