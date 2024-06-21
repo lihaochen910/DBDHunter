@@ -87,12 +87,21 @@ public static class Offsets {
 	
 	
 	// 8.0.1
+	// public const ulong GWorld_Steam = 0xF34CE80;
+	// public const ulong FNames_Steam = 0xF0E7530;
+	// public const ulong GObjects_Steam = 0xF1A9E80;
+	// public const ulong GWorld_Epic = 0xEDCCE50;
+	// public const ulong FNames_Epic = 0xEB7AE80;
+	// public const ulong GObjects_Epic = 0xEC3D700;
+	
+	
+	// 8.0.2
 	public const ulong GWorld_Steam = 0xF34CE80;
 	public const ulong FNames_Steam = 0xF0E7530;
 	public const ulong GObjects_Steam = 0xF1A9E80;
-	public const ulong GWorld_Epic = 0xEDCCE50;
-	public const ulong FNames_Epic = 0xEB7AE80;
-	public const ulong GObjects_Epic = 0xEC3D700;
+	public const ulong GWorld_Epic = 0xEDCDF50;
+	public const ulong FNames_Epic = 0xEB7BF80;
+	public const ulong GObjects_Epic = 0xEC3E800;
 	
 	
 	// public static ulong UWorld_Levels = 0x180;
