@@ -305,9 +305,47 @@
     }
   },
   "PalletBoneColor": {
-    "R": 1,
-    "G": 0.6,
-    "B": 0.1,
+    "R": 0.38094974,
+    "G": 0.8443272,
+    "B": 0.41518337,
+    "A": 1
+  },
+  "BearTrapNameDrawInfo": {
+    "Origin": {
+      "X": 0,
+      "Y": 0
+    },
+    "Offset": {
+      "X": 0,
+      "Y": 0
+    },
+    "Rotation": 0,
+    "Scale": {
+      "X": 1,
+      "Y": 1
+    },
+    "Color": {
+      "R": 1,
+      "G": 0.45910287,
+      "B": 0,
+      "A": 1
+    },
+    "Sort": 0.5,
+    "OutlineStyle": 15,
+    "Debug": false,
+    "BlendMode": 0,
+    "ImageFlip": 0,
+    "Clip": {
+      "X": 0,
+      "Y": 0,
+      "Width": 0,
+      "Height": 0
+    }
+  },
+  "BearTrapBoneColor": {
+    "R": 0.036939144,
+    "G": 0,
+    "B": 1,
     "A": 1
   },
   "Name": "Default",

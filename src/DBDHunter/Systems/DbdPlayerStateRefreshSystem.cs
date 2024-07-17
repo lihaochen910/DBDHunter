@@ -57,6 +57,7 @@ public class DbdPlayerStateRefreshSystem : IUpdateSystem {
 			handle.Prepare< FName >( playerState + Offsets.ADBDPlayerState_PlayerData + Offsets.FPlayerStateData_EquipedFavorId );
 			handle.Prepare< int >( playerState + Offsets.ADBDPlayerState_PlayerData + Offsets.FPlayerStateData_EquipedPerkIds + 0x08 );
 			handle.Prepare< int >( playerState + Offsets.ADBDPlayerState_PlayerData + Offsets.FPlayerStateData_PrestigeLevel );
+			handle.Prepare< uint >( playerState + Offsets.ADBDPlayerState_Platform );
 		}
 		
 		handle.Execute();
@@ -95,6 +96,8 @@ public class DbdPlayerStateRefreshSystem : IUpdateSystem {
 						addonIdsLen );
 				}
 			}
+			
+			var platform = ( EPlatformFlag )Memory.Read< uint >( playerState + Offsets.ADBDPlayerState_Platform, handle );
 
 			var playerStateEntity = LibraryServices.GetLibrary().SpawnPrefab( nameof( LibraryAsset.PlayerState ), context.World );
 			playerStateEntity.SetDbdPlayerAndCharacterStateData(
@@ -106,7 +109,8 @@ public class DbdPlayerStateRefreshSystem : IUpdateSystem {
 				equipedFavorId: equipedFavorId.ComparisonIndex,
 				equipedPerkIds: equipedPerkIds != null ? equipedPerkIds.Select( id => id.ComparisonIndex ).ToImmutableArray() : ImmutableArray< int >.Empty,
 				prestigeLevel: prestigeLevel,
-				addonIds: equipedPerkIds != null ? addonIds.Select( id => id.ComparisonIndex ).ToImmutableArray() : ImmutableArray< int >.Empty
+				addonIds: equipedPerkIds != null ? addonIds.Select( id => id.ComparisonIndex ).ToImmutableArray() : ImmutableArray< int >.Empty,
+				platform: platform
 			);
 		}
 		

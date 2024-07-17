@@ -11,6 +11,7 @@ public readonly struct DbdPlayerAndCharacterStateDataComponent : IComponent {
 	public readonly ImmutableArray< int > EquipedPerkIds;
 	public readonly int PrestigeLevel;
 	public readonly ImmutableArray< int > AddonIds;
+	public readonly EPlatformFlag Platform;
 	
 	public DbdPlayerAndCharacterStateDataComponent( ulong playerStateAddr,
 													string name,
@@ -20,7 +21,8 @@ public readonly struct DbdPlayerAndCharacterStateDataComponent : IComponent {
 													int equipedFavorId,
 													ImmutableArray< int > equipedPerkIds,
 													int prestigeLevel,
-													ImmutableArray< int > addonIds
+													ImmutableArray< int > addonIds,
+													EPlatformFlag platform
 													) {
 		PlayerStateAddr = playerStateAddr;
 		Name = name;
@@ -31,6 +33,7 @@ public readonly struct DbdPlayerAndCharacterStateDataComponent : IComponent {
 		EquipedPerkIds = equipedPerkIds;
 		PrestigeLevel = prestigeLevel;
 		AddonIds = addonIds;
+		Platform = platform;
 	}
 
 }

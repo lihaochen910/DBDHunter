@@ -96,13 +96,21 @@ public static class Offsets {
 	
 	
 	// 8.0.2
-	public const ulong GWorld_Steam = 0xF34CE80;
-	public const ulong FNames_Steam = 0xF0E7530;
-	public const ulong GObjects_Steam = 0xF1A9E80;
-	public const ulong GWorld_Epic = 0xEDCDF50;
-	public const ulong FNames_Epic = 0xEB7BF80;
-	public const ulong GObjects_Epic = 0xEC3E800;
+	// public const ulong GWorld_Steam = 0xF34CE80;
+	// public const ulong FNames_Steam = 0xF0E7530;
+	// public const ulong GObjects_Steam = 0xF1A9E80;
+	// public const ulong GWorld_Epic = 0xEDCDF50;
+	// public const ulong FNames_Epic = 0xEB7BF80;
+	// public const ulong GObjects_Epic = 0xEC3E800;
 	
+    
+    // 8.1.0
+    public const ulong GWorld_Steam = 0xF72B2A0;
+	public const ulong FNames_Steam = 0xF4C57C0;
+	public const ulong GObjects_Steam = 0xF588094;
+	public const ulong GWorld_Epic = 0xF2B2CF0;
+	public const ulong FNames_Epic = 0xF060AC0;
+	public const ulong GObjects_Epic = 0xF123354;
 	
 	// public static ulong UWorld_Levels = 0x180;
 	// public static string UWorld_LevelCollections = "0x0190";
@@ -127,12 +135,12 @@ public static class Offsets {
 	
 	public static ulong ADBDPlayerState_PlayerNamePrivate = 0x03A0;
 	public static ulong ADBDPlayerState_GameRole = 0x03FA;
-	public static ulong ADBDPlayerState_SelectedCamperIndex = 0x0628;
-	public static ulong ADBDPlayerState_SelectedSlasherIndex = 0x062C;
+	public static ulong ADBDPlayerState_SelectedCamperIndex = 0x0638;
+	public static ulong ADBDPlayerState_SelectedSlasherIndex = 0x063C;
 	public static ulong ADBDPlayerState_CamperData = 0x0410;
 	public static ulong ADBDPlayerState_SlasherData = 0x0430;
 	public static ulong ADBDPlayerState_PlayerData = 0x0450;
-	public static ulong ADBDPlayerState_Platform = 0x0794;
+	public static ulong ADBDPlayerState_Platform = 0x078C;
 	
 	public static string FCharacterStateDataInfo_PIPs = "0x0000";
 	public static string FCharacterStateDataInfo_PowerId = "0x0004";
@@ -144,7 +152,7 @@ public static class Offsets {
 	public static ulong FPlayerStateData_EquipedPerkLevels = 0x0020;
 	public static string FPlayerStateData_EquippedBannerId = "0x0030";
 	public static string FPlayerStateData_EquippedBadgeId = "0x0040";
-	public static ulong FPlayerStateData_PrestigeLevel = 0x0054;
+	public static ulong FPlayerStateData_PrestigeLevel = 0x0060;
 
 	// public static string FLevelCollection_GameState = "0x0008";
 	// public static string FLevelCollection_Levels = "0x0028";

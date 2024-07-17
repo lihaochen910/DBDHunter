@@ -83,11 +83,11 @@ public class DbdPlayerStateDataUiSystem : IMurderRenderSystem {
 						_addonStrBuilder.AppendFormat( "'{0}' ", DBDAddons.GetAddonName( UEHelper.GetFNameByComparisonIndex( addonId ) ) );
 					}
 					addonStr = _addonStrBuilder.ToString();
-					SlasherLine( $"{data.Name} {characterName} P{data.PrestigeLevel:000} {perksStr} {addonStr} {equipedFavorName}" );
+					SlasherLine( $"{data.Name} {characterName} P{data.PrestigeLevel:000} {perksStr} {addonStr} {equipedFavorName} [{data.Platform}]" );
 					break;
 				case EPlayerRole.VE_Camper:
 					characterName = DBDCampers.GetCampersName( data.SelectedCamperIndex ) ?? data.SelectedCamperIndex.ToString();
-					Line( $"{data.Name} {characterName} P{data.PrestigeLevel:000} {perksStr} {addonStr} {equipedFavorName}" );
+					Line( $"{data.Name} {characterName} P{data.PrestigeLevel:000} {perksStr} {addonStr} {equipedFavorName} [{data.Platform}]" );
 					break;
 				default:
 					characterName = data.PlayerRole.ToString();
