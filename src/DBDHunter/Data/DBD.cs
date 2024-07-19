@@ -156,7 +156,7 @@ public static class Offsets {
 
 	// public static string FLevelCollection_GameState = "0x0008";
 	// public static string FLevelCollection_Levels = "0x0028";
-	public static ulong ADBDGameState_BuiltLevelData = 0x05D0;         // 0x05D0(0x00B8)
+	public static ulong ADBDGameState_BuiltLevelData = 0x05E8;         // 0x05D0(0x00B8)
 	public static ulong ADBDGameState_BuiltLevelData_MapName = 0x0080; // 0x05D0(0x00B8)
 	// public static ulong ADBDGameState_LevelReadyToPlay = 0x06DB;       // 0x06DB(0x0001)
 	// public static ulong ADBDGameState_GameLevelLoaded = 0x0908;        // 0x0908(0x0001)
