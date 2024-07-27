@@ -127,7 +127,7 @@ internal class DbdActorRefreshSystem : IStartupSystem, IExitSystem, IUpdateSyste
 					}
 				}
 				
-				if (cachedBoneSpaceTransforms != 0 && cachedBoneSpaceTransformsNum is > 0 and < 0xFF ) {
+				if ( cachedBoneSpaceTransforms != 0 && cachedBoneSpaceTransformsNum is > 0 and < 0xFF ) {
 					secondPassHandle.Prepare( cachedBoneSpaceTransforms, ( uint )( Marshal.SizeOf< FTransform >() * cachedBoneSpaceTransformsNum ) );
 				}
 				

@@ -12,7 +12,6 @@ using DBDHunter.Services;
 using DBDHunter.Utilities;
 using DigitalRune.Geometry.Shapes;
 using DigitalRune.Mathematics.Algebra;
-using Microsoft.Extensions.Logging;
 using Murder.Services;
 
 
@@ -465,7 +464,7 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 	}
 
 	private IEnumerator< Wait > DelayFirstMatchStart( World world ) {
-		yield return Wait.ForSeconds( 2f );
+		yield return Wait.ForSeconds( 1f );
 		
 		if ( world.TryGetUniqueEntity< DbdGWorldComponent >() is {} entity ) {
 			entity.SendMessage< DbdMatchStartMessage >();

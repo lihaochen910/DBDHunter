@@ -39,77 +39,12 @@ public static class Offsets {
 	
 	public const string NullAddress = "0x00000000";
 	
-	// 7.5.2
-	// public const string GWorld_Steam = "0x0E2A7E60";
-	// public const string FNames_Steam = "0xE08CE40";
-	// public const string GWorld_Epic = "0xDB6B410";
-	// public const string FNames_Epic = "0xD965400";
-	
-	// 7.6.0
-	// public const string GWorld_Steam = "0xEF98120";
-	// public const string FNames_Steam = "0xED7D140";
-	// public const string GWorld_Epic = "0xE8466E0";
-	// public const string FNames_Epic = "0xE640700";
-	
-	// 7.6.1
-	// public const string GWorld_Steam = "0xEFA6190";
-	// public const string FNames_Steam = "0xED8B180";
-	// public const string GWorld_Epic = "0xE854860";
-	// public const string FNames_Epic = "0xE64E840";
-	
-	// 7.6.2
-	// public const string GWorld_Steam = "0xEF93D30";
-	// public const string FNames_Steam = "0xED78D00";
-	// public const string GWorld_Epic = "0xE841390";
-	// public const string FNames_Epic = "0xE63B380";
-    
-	// 7.7.0
-	// public const ulong GWorld_Steam = 0xEBF55A0;
-	// public const ulong FNames_Steam = 0xE98FD00;
-	// public const ulong GWorld_Epic = 0xE6755A0;
-	// public const ulong FNames_Epic = 0xE3FF765;
-	
-	// 7.7.1
-	// public const ulong GWorld_Steam = 0xEBE0C70;
-	// public const ulong FNames_Steam = 0xE97B380;
-	// public const ulong GObjects_Steam = 0xEA3DC40;
-	// public const ulong GWorld_Epic = 0xE661B60;
-	// public const ulong FNames_Epic = 0xE40FB80;
-	// public const ulong GObjects_Epic = 0xE4D2400;
-	
-	// 8.0.0
-	// public const ulong GWorld_Steam = 0xF319AA0;
-	// public const ulong FNames_Steam = 0xF0B41C0;
-	// public const ulong GObjects_Steam = 0xEA3DC40;
-	// public const ulong GWorld_Epic = 0xED98AF0;
-	// public const ulong FNames_Epic = 0xEB46B00;
-	// public const ulong GObjects_Epic = 0xEC09380;
-	
-	
-	// 8.0.1
-	// public const ulong GWorld_Steam = 0xF34CE80;
-	// public const ulong FNames_Steam = 0xF0E7530;
-	// public const ulong GObjects_Steam = 0xF1A9E80;
-	// public const ulong GWorld_Epic = 0xEDCCE50;
-	// public const ulong FNames_Epic = 0xEB7AE80;
-	// public const ulong GObjects_Epic = 0xEC3D700;
-	
-	
-	// 8.0.2
-	// public const ulong GWorld_Steam = 0xF34CE80;
-	// public const ulong FNames_Steam = 0xF0E7530;
-	// public const ulong GObjects_Steam = 0xF1A9E80;
-	// public const ulong GWorld_Epic = 0xEDCDF50;
-	// public const ulong FNames_Epic = 0xEB7BF80;
-	// public const ulong GObjects_Epic = 0xEC3E800;
-	
-    
-    // 8.1.0
-    public const ulong GWorld_Steam = 0xF72B2A0;
-	public const ulong FNames_Steam = 0xF4C57C0;
+    // 8.1.1
+    public const ulong GWorld_Steam = 0xF83BBD0;
+	public const ulong FNames_Steam = 0xF5D6100;
 	public const ulong GObjects_Steam = 0xF588094;
-	public const ulong GWorld_Epic = 0xF2B2CF0;
-	public const ulong FNames_Epic = 0xF060AC0;
+	public const ulong GWorld_Epic = 0xF2BACC0;
+	public const ulong FNames_Epic = 0xF068A40;
 	public const ulong GObjects_Epic = 0xF123354;
 	
 	// public static ulong UWorld_Levels = 0x180;
@@ -146,12 +81,12 @@ public static class Offsets {
 	public static string FCharacterStateDataInfo_PowerId = "0x0004";
 	public static ulong FCharacterStateDataInfo_AddonIds = 0x0010;
 	
-	public static string FPlayerStateData_CharacterLevel = "0x0000";
+	public static ulong FPlayerStateData_CharacterLevel = 0x0000;
 	public static ulong FPlayerStateData_EquipedFavorId = 0x0004;
 	public static ulong FPlayerStateData_EquipedPerkIds = 0x0010;
 	public static ulong FPlayerStateData_EquipedPerkLevels = 0x0020;
-	public static string FPlayerStateData_EquippedBannerId = "0x0030";
-	public static string FPlayerStateData_EquippedBadgeId = "0x0040";
+	public static ulong FPlayerStateData_EquippedBannerId = 0x0030;
+	public static ulong FPlayerStateData_EquippedBadgeId = 0x0040;
 	public static ulong FPlayerStateData_PrestigeLevel = 0x0060;
 
 	// public static string FLevelCollection_GameState = "0x0008";
@@ -272,6 +207,7 @@ public static class Offsets {
 	public const string CLASS_SkeletalMesh = "SkeletalMesh";
 
 	public const string CLASS_BearTrap = "BearTrap";
+	public const string CLASS_PhantomTrap = "PhantomTrap";
 	public const string CLASS_Pallet = "Pallet";
 	public const string CLASS_Hatch = "Hatch";
 	public const string CLASS_Generator = "Generator";
@@ -766,28 +702,29 @@ public static class DBDCampers {
 		( 17, "南希 惠勒" ),
 		( 18, "史蒂夫 哈灵顿" ),
 		( 19, "木村唯" ),
-		( 20, "Zarina Kassir" ),
+		( 20, "萨丽娜" ),
 		( 21, "雪柔 梅森" ),
-		( 22, "Felix Richter" ),
+		( 22, "菲力克斯" ),
 		( 23, "埃洛迪 拉科托" ),
 		( 24, "李允珍" ),
 		( 25, "吉尔 瓦伦丁" ),
 		( 26, "里昂 肯尼迪" ),
-		( 27, "Mikaela Reid" ),
+		( 27, "米卡拉" ),
 		( 28, "约拿 法斯克兹" ),
 		( 29, "浅川杨一" ),
 		( 30, "哈迪 寇尔" ),
 		( 31, "艾达 王" ),
 		( 32, "蕾贝卡 钱伯斯" ),
-		( 33, "Vittorio Toscano" ),
+		( 33, "维多里奥" ),
 		( 34, "塔莉妲 莱拉" ),
-		( 35, "Renato Lyra" ),
-		( 36, "Gabriel Soma" ),
+		( 35, "雷那多 莱拉" ),
+		( 36, "加布里尔 索马" ),
 		( 37, "尼古拉斯 凯奇" ),
-		( 38, "Ellen Ripley" ),
+		( 38, "爱伦 蕾普利" ),
 		( 39, "Alan Wake" ),
 		( 40, "赛贝尔 瓦德" ),
 		( 41, "艾斯翠 亚撒" ),
+		( 42, "劳拉" ),
 	];
 
 	public static string GetCampersName( int camperID ) {
