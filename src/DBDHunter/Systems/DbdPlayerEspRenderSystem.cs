@@ -44,7 +44,7 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 			return;
 		}
 		else {
-			render.GameUiBatch.DrawText( 103, $"PlayerCameraMgr: 0x{playerCameraManagerComponent.Addr:X8}", new Vector2( 2, fontSize ), drawInfo );
+			render.GameUiBatch.DrawText( MurderFonts.PixelFont, $"PlayerCameraMgr: 0x{playerCameraManagerComponent.Addr:X8}", new Vector2( 2, fontSize ), drawInfo );
 		}
 		
 		foreach ( var entity in context.Entities ) {
@@ -83,6 +83,10 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 			
 			if ( entity.HasDbdPallet() ) {
 				DrawPalletEsp( render, entity, in relativeLocation, distance, in playerCameraManagerComponent, resolution );
+			}
+            
+			if ( entity.HasDbdWindow() ) {
+				DrawWindowEsp( render, entity, in relativeLocation, distance, in playerCameraManagerComponent, resolution );
 			}
 			
 			if ( entity.HasDbdBearTrap() ) {
@@ -520,24 +524,68 @@ public class DbdPlayerEspRenderSystem : IMurderRenderSystem {
 	}
 	
 	
+	private readonly BoxShape _palletBoxShape_Up = new ( new Vector3F( 130f, 20f, 250f ) );
+	private readonly BoxShape _palletBoxShape_Fallen = new ( new Vector3F( 130f, 20f, 250f ) );
 	private void DrawPalletEsp( RenderContext render, Entity entity, in Vector3D relativeLocation,
 								double distance, in DbdPlayerCameraManagerComponent playerCameraManagerComponent,
 								Vector2I resolution ) {
 		
 		var palletComponent = entity.GetDbdPallet();
-		if ( palletComponent.State != EPalletState.Up ) {
+		if ( palletComponent.State is not EPalletState.Up and not EPalletState.Fallen and not EPalletState.Falling ) {
 			return;
 		}
 		
 		var uiSkinAsset = LibraryServices.GetUiSkin();
+
+		if ( distance > uiSkinAsset.PalletDrawDistance ) {
+			return;
+		}
 		
-		var palletScreenPos = UEViewMatrix.WorldToScreen(
-			playerCameraManagerComponent.CameraEntry.POV,
-			relativeLocation,
-			resolution
-		);
+		// var palletScreenPos = UEViewMatrix.WorldToScreen(
+		// 	playerCameraManagerComponent.CameraEntry.POV,
+		// 	relativeLocation,
+		// 	resolution
+		// );
 		
-		render.GameUiBatch.DrawText( MurderFonts.PixelFont, $"Pallet - {palletComponent.State} ({distance:0.0}m)", new Vector2( ( float )palletScreenPos.X, ( float )palletScreenPos.Y ), uiSkinAsset.PalletNameDrawInfo );
+		// render.GameUiBatch.DrawText( MurderFonts.PixelFont, $"Pallet - {palletComponent.State} ({distance:0.0}m)", new Vector2( ( float )palletScreenPos.X, ( float )palletScreenPos.Y ), uiSkinAsset.PalletNameDrawInfo );
+		// render.GameUiBatch.DrawText( 103, $"板 ( {distance:0.0}m )", new Vector2( ( float )palletScreenPos.X, ( float )palletScreenPos.Y ), uiSkinAsset.PalletNameDrawInfo );
+
+		_palletBoxShape_Up.Extent = new Vector3F( 130f, 20f, 250f );
+		_palletBoxShape_Fallen.Extent = _palletBoxShape_Up.Extent;
+		
+		var actorComponent = entity.GetDbdActor();
+		var pose = new PoseD( actorComponent.RelativeLocation + new Vector3D( 0, 0, _palletBoxShape_Fallen.WidthZ / 2d ) );
+
+		// if ( palletComponent.State is EPalletState.Fallen ) {
+		// 	pose.Orientation = Matrix33D.CreateRotationZ( 0f ) *
+		// 					   Matrix33D.CreateRotationX( 0 ) *
+		// 					   Matrix33D.CreateRotationY( 45f );
+		// }
+		
+		DrawBoxShape( render, palletComponent.State is EPalletState.Up ? _palletBoxShape_Up : _palletBoxShape_Fallen, ( Pose )pose, palletComponent.State is EPalletState.Up ? uiSkinAsset.PalletBoneColor : uiSkinAsset.PalletFallenBoneColor, 1f, in playerCameraManagerComponent );
+	}
+	
+	
+	private readonly BoxShape _windowBoxShape = new ( new Vector3F( 130f, 20f, 100f ) );
+	private void DrawWindowEsp( RenderContext render, Entity entity, in Vector3D relativeLocation,
+								double distance, in DbdPlayerCameraManagerComponent playerCameraManagerComponent,
+								Vector2I resolution ) {
+		
+		var uiSkinAsset = LibraryServices.GetUiSkin();
+
+		if ( distance > uiSkinAsset.WindowDrawDistance ) {
+			return;
+		}
+		
+		_windowBoxShape.Extent = new Vector3F( 130f, 20f, 100f );
+		
+		var actorComponent = entity.GetDbdActor();
+		var pose = new PoseD( actorComponent.RelativeLocation + new Vector3D( 0, 0, _windowBoxShape.WidthZ / 2d ) );
+		pose.Orientation = Matrix33D.CreateRotationZ( actorComponent.RelativeRotation.Z ) *
+						   Matrix33D.CreateRotationX( 0 ) *
+						   Matrix33D.CreateRotationY( 0 );
+		
+		DrawBoxShape( render, _windowBoxShape, ( Pose )pose, uiSkinAsset.WindowBoneColor, 1f, in playerCameraManagerComponent );
 	}
 	
 	

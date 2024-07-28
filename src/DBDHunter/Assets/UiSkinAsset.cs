@@ -43,7 +43,12 @@ public class UiSkinAsset : GameAsset {
 	public Color SearchableBoneColor = Color.Gray;
 
 	public DrawInfo PalletNameDrawInfo = DrawInfo.Default;
-	public Color PalletBoneColor = Color.Orange;
+	public Color PalletBoneColor = Color.Green;
+	public Color PalletFallenBoneColor = Color.Green;
+	public float PalletDrawDistance = 120f; // 该距离正好是机遇之窗+稳操胜券的气场距离
+	
+	public Color WindowBoneColor = Color.Orange;
+	public float WindowDrawDistance = 120f;
 
 	public DrawInfo BearTrapNameDrawInfo = DrawInfo.Default;
 	public Color BearTrapBoneColor = Color.Yellow;

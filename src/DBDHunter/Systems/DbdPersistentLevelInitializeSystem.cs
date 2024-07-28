@@ -37,6 +37,7 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 	private readonly List< ulong > _totemList = new ( 5 );
 	private readonly List< ulong > _searchablesList = new ( 8 );
 	private readonly List< ulong > _palletsList = new ( 30 );
+	private readonly List< ulong > _windowsList = new ( 12 );
 	private readonly List< ulong > _bearTrapList = new ( 12 );
 
 	private Entity _coroutineEntity;
@@ -179,6 +180,10 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 					_palletsList.Add( actor );
 				}
 				
+				if ( actor.IsA( Offsets.CLASS_Window, actorClass ) ) {
+					_windowsList.Add( actor );
+				}
+				
 				if ( actor.IsA( Offsets.CLASS_BearTrap, actorClass ) ) {
 					_bearTrapList.Add( actor );
 				}
@@ -280,6 +285,7 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 			gameStateEntity.SetDbdGameState( gameStateEntity.GetDbdGameState().SetTotems( [.._totemList] ) );
 			gameStateEntity.SetDbdGameState( gameStateEntity.GetDbdGameState().SetSearchables( [.._searchablesList] ) );
 			gameStateEntity.SetDbdGameState( gameStateEntity.GetDbdGameState().SetPallets( [.._palletsList] ) );
+			gameStateEntity.SetDbdGameState( gameStateEntity.GetDbdGameState().SetWindows( [.._windowsList] ) );
 			
 			AfterPersistentLevelInitialized( world, gameStateEntity );
 		}
@@ -360,6 +366,14 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 			
 			handle.Prepare< ulong >( pallet + Offsets.AActor_RootComponent );
 			handle.Prepare< ulong >( pallet + Offsets.APallet_State );
+		}
+		
+		foreach ( var window in dbdGameStateComponent.Windows ) {
+			if ( window is 0 ) {
+				continue;
+			}
+			
+			handle.Prepare< ulong >( window + Offsets.AActor_RootComponent );
 		}
 		
 		foreach ( var trap in _bearTrapList ) {
@@ -448,6 +462,18 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 			);
 		}
 		
+		foreach ( var window in dbdGameStateComponent.Windows ) {
+			if ( window is 0 ) {
+				continue;
+			}
+			
+			var rootComponent = handle.Read< ulong >( window + Offsets.AActor_RootComponent );
+			
+			var windowEntity = LibraryServices.GetLibrary().SpawnPrefab( nameof( LibraryAsset.Pallet ), world );
+			windowEntity.SetDbdActor( window, rootComponent, default, Vector3D.Zero, Vector3D.One );
+			windowEntity.SetDbdWindow();
+		}
+		
 		foreach ( var bearTrap in _bearTrapList ) {
 			if ( bearTrap is 0 ) {
 				continue;
@@ -509,6 +535,7 @@ public class DbdPersistentLevelInitializeSystem : IStartupSystem, IExitSystem, I
 			_totemList.Clear();
 			_searchablesList.Clear();
 			_palletsList.Clear();
+			_windowsList.Clear();
 
 			bearTrapCount = _bearTrapList.Count;
 			_bearTrapList.Clear();

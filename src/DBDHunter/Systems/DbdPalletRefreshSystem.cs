@@ -46,7 +46,7 @@ internal class DbdPalletRefreshSystem : IStartupSystem, IExitSystem, IUpdateSyst
 		
 		foreach ( var entity in context.Entities ) {
 			entity.SetDbdPallet(
-				( EPalletState )handle.Read< byte >( entity.GetDbdActor().ActorAddr + Offsets.ABaseTrap_IsTrapSet )
+				( EPalletState )handle.Read< byte >( entity.GetDbdActor().ActorAddr + Offsets.APallet_State )
 			);
 		}
 		

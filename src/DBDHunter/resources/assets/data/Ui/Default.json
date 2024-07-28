@@ -288,9 +288,9 @@
     },
     "Color": {
       "R": 0,
-      "G": 0,
-      "B": 0,
-      "A": 0
+      "G": 1,
+      "B": 0.15303421,
+      "A": 0.50980395
     },
     "Sort": 0.5,
     "OutlineStyle": 15,
@@ -310,6 +310,20 @@
     "B": 0.41518337,
     "A": 1
   },
+  "PalletFallenBoneColor": {
+    "R": 0.7491231,
+    "G": 0.84313726,
+    "B": 0.3803922,
+    "A": 1
+  },
+  "PalletDrawDistance": 100,
+  "WindowBoneColor": {
+    "R": 0.95686275,
+    "G": 0.48235294,
+    "B": 0.05490196,
+    "A": 0.47058824
+  },
+  "WindowDrawDistance": 100,
   "BearTrapNameDrawInfo": {
     "Origin": {
       "X": 0,
